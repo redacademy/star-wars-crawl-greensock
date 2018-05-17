@@ -1,5 +1,19 @@
-body {
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:400,600,700");
+/* Minimal Reset */
+
+html, body, div, h1, h2, p, section, audio {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  font-size: 24px;
+}
+
+body {
   font-family: sans-serif;
 }
