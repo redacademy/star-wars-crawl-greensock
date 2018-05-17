@@ -15,5 +15,18 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  align-items: center;
+  background: black;
+  color: rgb(229, 177, 58);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  justify-content: center;
+  line-height: 1.25;
+  overflow: hidden;
+}
+
+div[id="root"] {
+  width: 100%;
 }

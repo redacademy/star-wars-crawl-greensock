@@ -1,0 +1,17 @@
+.container {
+  height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+.intro {
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+}
+
+.intro p {
+  color: rgb(75, 213, 238);
+  font-size: 1.25rem;
+}
