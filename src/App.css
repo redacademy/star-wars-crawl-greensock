@@ -4,7 +4,7 @@
   width: 100%;
 }
 
-.intro {
+.intro, .logo {
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -14,4 +14,11 @@
 .intro p {
   color: rgb(75, 213, 238);
   font-size: 1.25rem;
+}
+
+.logo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 18rem;
 }
