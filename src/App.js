@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import { TweenLite } from "gsap";
+import { TimelineLite, TweenLite } from "gsap";
 
 import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    TweenLite.fromTo(this.intro, 4.5, { opacity: 0 }, { opacity: 1, delay: 1 });
-    TweenLite.to(this.intro, 1.5, { opacity: 0, delay: 5.5 });
+    const tl = new TimelineLite();
+
+    tl
+      .fromTo(this.intro, 4.5, { opacity: 0 }, { opacity: 1, delay: 1 })
+      .to(this.intro, 1.5, { opacity: 0 });
   }
 
   render() {
