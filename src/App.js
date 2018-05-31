@@ -11,6 +11,9 @@ class App extends Component {
     this.intro = React.createRef();
     this.logo = React.createRef();
     this.content = React.createRef();
+    this.theme = new Audio(
+      "https://ia801307.us.archive.org/28/items/JohnWilliamsStarWarsMainThemeFULL/John%20Williams%20-%20Star%20Wars%20Main%20Theme%20(FULL).mp3"
+    );
   }
 
   componentDidMount() {
@@ -18,8 +21,17 @@ class App extends Component {
 
     tl
       .to(this.intro.current, 4.5, { opacity: 1, delay: 1 })
-      .to(this.intro.current, 1.5, { opacity: 0 })
-      .set(this.logo.current, { opacity: 1, scale: 2.75 })
+      .to(this.intro.current, 1.5, {
+        opacity: 0,
+        onComplete: () => {
+          this.theme.play();
+        }
+      })
+      .set(this.logo.current, {
+        opacity: 1,
+        scale: 2.75,
+        delay: 0.5
+      })
       .to(this.logo.current, 8, { scale: 0.05, ease: Power2.easeOut })
       .to(this.logo.current, 1.5, { opacity: 0 }, "-=1.5")
       .to(this.content.current, 200, { top: "-170%" });
