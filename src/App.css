@@ -74,3 +74,17 @@
   margin-bottom: 4rem;
   text-align: justify;
 }
+
+.volume {
+  background: transparent;
+  border: 0;
+  bottom: 10px;
+  cursor: pointer;
+  left: 10px;
+  position: absolute;
+  z-index: 1000;
+}
+
+.volume img {
+  height: 24px;
+}

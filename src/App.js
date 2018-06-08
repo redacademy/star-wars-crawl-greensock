@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Power2, TimelineLite } from "gsap";
 
 import logo from "./logo.svg";
+import volumeOff from "./volume_off.svg";
+import volumeOn from "./volume_on.svg";
 import "./App.css";
 
 class App extends Component {
@@ -11,10 +13,22 @@ class App extends Component {
     this.intro = React.createRef();
     this.logo = React.createRef();
     this.content = React.createRef();
-    this.theme = new Audio(
-      "https://ia801307.us.archive.org/28/items/JohnWilliamsStarWarsMainThemeFULL/John%20Williams%20-%20Star%20Wars%20Main%20Theme%20(FULL).mp3"
-    );
+    this.audio = React.createRef();
+
+    this.state = {
+      muted: true
+    };
   }
+
+  onVolumeClick = () => {
+    if (this.state.muted) {
+      this.audio.current.muted = false;
+    } else {
+      this.audio.current.muted = true;
+    }
+
+    this.setState({ muted: !this.state.muted });
+  };
 
   componentDidMount() {
     const tl = new TimelineLite();
@@ -24,7 +38,7 @@ class App extends Component {
       .to(this.intro.current, 1.5, {
         opacity: 0,
         onComplete: () => {
-          this.theme.play();
+          this.audio.current.play();
         }
       })
       .set(this.logo.current, {
@@ -46,7 +60,7 @@ class App extends Component {
           </p>
         </section>
         <section className="logo" ref={this.logo}>
-          <img src={logo} alt="Star Wars logo" />
+          <img src={logo} alt="Code Wars logo" />
         </section>
         <section className="crawl">
           <div className="content" ref={this.content}>
@@ -69,6 +83,21 @@ class App extends Component {
             </p>
           </div>
         </section>
+        <audio ref={this.audio} muted>
+          <source
+            type="audio/mpeg"
+            src="https://ia801307.us.archive.org/28/items/JohnWilliamsStarWarsMainThemeFULL/John%20Williams%20-%20Star%20Wars%20Main%20Theme%20(FULL).mp3"
+          />
+        </audio>
+        <button className="volume" type="button" onClick={this.onVolumeClick}>
+          {/* Icons created by Agarunov Oktay-Abraham from the Noun Project */}
+          {/* https://thenounproject.com/agarunov/ */}
+          {this.state.muted ? (
+            <img src={volumeOff} alt="Volume is off" />
+          ) : (
+            <img src={volumeOn} alt="Volume is on" />
+          )}
+        </button>
       </div>
     );
   }
