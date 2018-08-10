@@ -86,7 +86,7 @@ class App extends Component {
         <audio ref={this.audio} muted>
           <source
             type="audio/mpeg"
-            src="https://ia801307.us.archive.org/28/items/JohnWilliamsStarWarsMainThemeFULL/John%20Williams%20-%20Star%20Wars%20Main%20Theme%20(FULL).mp3"
+            src="https://ia801501.us.archive.org/23/items/StarWars_20180709/Star%20Wars.mp3"
           />
         </audio>
         <button className="volume" type="button" onClick={this.onVolumeClick}>
